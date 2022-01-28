@@ -19,7 +19,7 @@ steps:
     resourceGroupName: 'MDMC-RG'
     location: 'Central US'
     templateLocation: 'URL of the file'
-    csmFileLink: "https://raw.githubusercontent.com/mcdenison/AzureRmPipeline/main/CreateWebApp/azuredeploy.json?token=GHSAT0AAAAAABQ7PNYUP3D5UWBRODELXQHAYPTUJAA"
+    csmFileLink: https://raw.githubusercontent.com/mcdenison/AzureRmPipeline/main/CreateWebApp/azuredeploy.json?token=GHSAT0AAAAAABQ7PNYUP3D5UWBRODELXQHAYPTUJAA
     overrideParameters: '-projectName McDemo'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
