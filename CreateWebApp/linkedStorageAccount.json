@@ -1,59 +1,39 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specify the storage account name."
-      }
-    },
     "location": {
-      "type": "string",
-      "metadata": {
-        "description": "Specify a location for the resources."
-      }
+      "value": "[resourceGroup().location]"
     },
-    "storageSKU": {
-      "type": "string",
-      "defaultValue": "Standard_GRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Standard_ZRS",
-        "Premium_LRS",
-        "Premium_ZRS",
-        "Standard_GZRS",
-        "Standard_RAGZRS"
-      ],
-      "metadata": {
-        "description": "Specify the storage account type."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
-      "name": "[parameters('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('storageSKU')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "supportsHttpsTrafficOnly": true
-      }
-    }
-  ],
-  "minimumTlsVersion": {
+    "storageAccountName": {
+      "value": "[concat('storage', uniqueString(resourceGroup().id))]"
+    },
+    "skuName": {
+      "value": "Standard_LRS"
+    },
+    "kind": {
+      "value": "StorageV2"
+    },
+    "accessTier": {
+      "value": "Hot"
+    },
+    "minimumTlsVersion": {
       "value": "TLS1_2"
     },
-  "outputs": {
-    "storageEndpoint": {
-      "type": "object",
-      "value": "[reference(parameters('storageAccountName')).primaryEndpoints]"
+    "supportsHttpsTrafficOnly": {
+      "value": true
+    },
+    "allowBlobPublicAccess": {
+      "value": true
+    },
+    "allowSharedKeyAccess": {
+      "value": true
+    },
+    "networkAclsBypass": {
+      "value": "AzureServices"
+    },
+    "networkAclsDefaultAction": {
+      "value": "Allow"
     }
   }
 }
