@@ -47,6 +47,9 @@
       }
     }
   ],
+  "minimumTlsVersion": {
+      "value": "TLS1_2"
+    },
   "outputs": {
     "storageEndpoint": {
       "type": "object",
