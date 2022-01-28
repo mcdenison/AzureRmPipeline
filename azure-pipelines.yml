@@ -16,7 +16,7 @@ steps:
     azureResourceManagerConnection: 'NNITLabsMC'
     subscriptionId: '67e3289f-ecc9-44ab-840b-20eb34d81fd6'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'MDMC-RG'
+    resourceGroupName: 'MDMC-Test-RG'
     location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: https://raw.githubusercontent.com/mcdenison/AzureRmPipeline/0b0c9131b0e32131fe2e166b33140f1d72aff290/CreateWebApp/azuredeploy.json
